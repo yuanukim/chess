@@ -1,3 +1,7 @@
+/*
+    @author yuanukim
+    @brief  chess game with alpha-beta prunning AI, written in C++14.
+*/
 #include <iostream>
 #include <fstream>
 #include <algorithm>
