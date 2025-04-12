@@ -890,7 +890,7 @@ public:
     }
 
     void set(int color) noexcept {
-        #ifdef __linux__
+        #if defined(__linux__) || defined(__FreeBSD__)
         switch(color) {
             case Black:
                 std::cout << "\033[30m"; break;
@@ -932,7 +932,7 @@ public:
     }
 
     void reset() noexcept {
-        #ifdef __linux__
+        #if defined(__linux__) || defined(__FreeBSD__)
             std::cout << "\033[0m";
         #elif defined(_WIN32)
             SetConsoleTextAttribute(hOutHandle, oldColorAttrs);
@@ -1013,7 +1013,7 @@ void print_help_page(){
 int main() {
     Side userSide = PS_DOWN;
     Side aiSide = PS_UPPER;
-    int32_t searchDepth = 5;
+    int32_t searchDepth = 3;
 
     load_piece_value_mapping();
     load_piece_pos_value_mapping();
